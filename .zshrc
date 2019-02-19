@@ -132,6 +132,7 @@ alias lrt='ls -1Fcrt'
 # git aliases
 alias git-commit-amend='git commit --amend --no-edit'
 alias gitlogg='git log --oneline --decorate --graph'
+alias glgpm='git log --stat -p --max-count=6'
 
 # issue last command with sudo
 alias please='sudo $(fc -ln -1)'
