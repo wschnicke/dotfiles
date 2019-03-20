@@ -1,24 +1,9 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:usr/local/bin:/Users/will/Library/Python/2.7/bin:$PATH
-export CLICOLOR=1
-export VISUAL='subl'
-
-# Preferred editor for local and remote sessions
-if [ $SSH_CONNECTION ]; then
-  export EDITOR='vim'
-else
-  export EDITOR=$VISUAL
-fi
-
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="aphrodite"
+# ZSH_THEME="af_magic"
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
 
@@ -39,7 +24,7 @@ ZSH_THEME="aphrodite"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=7
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -57,14 +42,6 @@ ZSH_THEME="aphrodite"
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -88,22 +65,16 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# Functions
 
 # this is so i can ssh directly into zsh if the machine won't let me change hosts lol
 # i need to save 4 keystrokes as much as possible
 zssh() ssh "$@" -t zsh
+
+# this lets me cd into a dir immediately after i make it
+mkdircd() {
+  mkdir "$@" && cd "$@"
+}
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -116,9 +87,18 @@ zssh() ssh "$@" -t zsh
 
 alias wipe='clear && clear'
 
+alias myip='curl ipecho.net/plain; echo'
+
 # sublime aliases
 alias subn='subl -n'
 alias subb='subl -b'
+
+# because apparently i need a spotify CLI
+alias spot='spotify'
+alias play='spotify play'
+alias pause='spotify pause'
+alias next='spotify next'
+alias prev='spotify prev'
 
 # ls aliases
 alias l='ls -lFh'
@@ -133,6 +113,7 @@ alias lrt='ls -1Fcrt'
 alias git-commit-amend='git commit --amend --no-edit'
 alias gitlogg='git log --oneline --decorate --graph'
 alias glgpm='git log --stat -p --max-count=6'
+alias gdh='git diff HEAD~1 HEAD'
 
 # issue last command with sudo
 alias please='sudo $(fc -ln -1)'
@@ -141,6 +122,8 @@ alias zshrc='$EDITOR ~/.zshrc'
 alias h='history'
 
 alias stdlinux='zssh -t schnicke.4@stdlinux.cse.ohio-state.edu'
+
+alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
 
 
 # Brazil CLI aliases
