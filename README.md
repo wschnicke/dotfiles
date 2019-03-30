@@ -1,3 +1,5 @@
-# Will's .zshrc
+# my dotfiles
 
-My personal .zshrc configuration, uploaded as an offset backup and as a public service.
+my personal root dotfiles, uploaded as an offset backup and as the least useful public service imaginable.
+
+dots not included.
