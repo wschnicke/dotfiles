@@ -71,10 +71,16 @@ source $ZSH/oh-my-zsh.sh
 # i need to save 4 keystrokes as much as possible
 zssh() ssh "$@" -t zsh
 
+# something for verifying git commits
+export GPG_TTY=$(tty)
+
 # this lets me cd into a dir immediately after i make it
 mkdircd() {
   mkdir "$@" && cd "$@"
 }
+
+# opens VS Code
+vscode () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -100,6 +106,8 @@ alias pause='spotify pause'
 alias next='spotify next'
 alias prev='spotify prev'
 
+alias dirv='dirs -v'
+
 # ls aliases
 alias l='ls -lFh'
 alias la='ls -lAFh'
@@ -108,6 +116,13 @@ alias ldot='ls -ld .*'
 alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
+
+alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
+
+# this lets me use bracket syntax (`pip install passlib[argon2]`) without quoting
+# should prevent me from spending a painful hour reading pip docs again
+alias pip='noglob pip'
+alias pip3='noglob pip3'
 
 # git aliases
 alias git-commit-amend='git commit --amend --no-edit'
@@ -123,7 +138,6 @@ alias h='history'
 
 alias stdlinux='zssh -t schnicke.4@stdlinux.cse.ohio-state.edu'
 
-alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
 
 
 # Brazil CLI aliases
