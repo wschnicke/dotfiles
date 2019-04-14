@@ -129,6 +129,7 @@ alias git-commit-amend='git commit --amend --no-edit'
 alias gitlogg='git log --oneline --decorate --graph'
 alias glgpm='git log --stat -p --max-count=6'
 alias gdh='git diff HEAD~1 HEAD'
+alias gpp='git pull && git push'
 
 # issue last command with sudo
 alias please='sudo $(fc -ln -1)'
