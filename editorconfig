@@ -12,5 +12,11 @@ indent_size = 4
 [*.html]
 indent_size = 2
 
+[*.xml]
+indent_size = 2
+
+[*.{scss,css}]
+indent_size = 2
+
 [{Makefile, makefile, MAKEFILE}]
 indent_style = space

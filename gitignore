@@ -1,5 +1,8 @@
 .DS_Store
 
+# IntelliJ config file
+.idea/
+
 ## VS/VS Code stuff
 # User-specific files
 *.rsuser

@@ -60,7 +60,7 @@ plugins=(
   # pylint
   zsh-autosuggestions
   cd-reminder
-  emojis
+  # emojis
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -125,32 +125,28 @@ alias pip='noglob pip'
 alias pip3='noglob pip3'
 
 # git aliases
+alias gcm='git checkout mainline'
+alias gcs='git checkout schnicke'
 alias git-commit-amend='git commit --amend --no-edit'
-alias gitlogg='git log --oneline --decorate --graph'
+alias glogs='git log --oneline --decorate --graph -n 10'
 alias glgpm='git log --stat -p --max-count=6'
 alias gdh='git diff HEAD~1 HEAD'
 alias gpp='git pull && git push'
+alias gdba='echo "lol dont use this"'
 
 # issue last command with sudo
 alias please='sudo $(fc -ln -1)'
 
 alias zshrc='$EDITOR ~/.zshrc'
+alias source_zsrhc='source ~/.zshrc'
 alias h='history'
-
-alias stdlinux='zssh -t schnicke.4@stdlinux.cse.ohio-state.edu'
-
-
-
-# Brazil CLI aliases
-alias bb=brazil-build-rainbow
-alias bws='brazil ws'
-alias bwuse='bws use -p'
-alias brc='brazil-recursive-cmd'
-alias bbr='brc brazil-build'
-alias bball='brc --allPackages'
 
 # Copypasta aliases lol
 alias bucks="cat ~/Documents/pasta/buckeye.txt"
 alias 🙅="cat ~/Documents/pasta/nah_we.txt"
 alias 🤷‍♀️="echo '¯\_(ツ)_/¯'"
 alias extra_thicc="echo '乇乂ㄒ尺卂 ㄒ卄丨匚匚'"
+
+# Load private zsh aliases
+. ~/.zshpriv
+
