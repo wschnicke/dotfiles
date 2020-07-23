@@ -16,7 +16,10 @@ indent_size = 2
 indent_size = 2
 
 [*.{scss,css}]
-indent_size = 2
+indent_size = 4
 
 [{Makefile, makefile, MAKEFILE}]
 indent_style = space
+
+[*.rb]
+indent_size = 2

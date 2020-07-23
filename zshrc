@@ -18,7 +18,7 @@ ZSH_THEME="aphrodite"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -65,7 +65,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Functions
+# functions
 
 # this is so i can ssh directly into zsh if the machine won't let me change hosts lol
 # i need to save 4 keystrokes as much as possible
@@ -73,6 +73,8 @@ zssh() ssh "$@" -t zsh
 
 # something for verifying git commits
 export GPG_TTY=$(tty)
+
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # this lets me cd into a dir immediately after i make it
 mkdircd() {
@@ -82,15 +84,7 @@ mkdircd() {
 # opens VS Code
 vscode () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# personal aliases
 alias wipe='clear && clear'
 
 alias myip='curl ipecho.net/plain; echo'
@@ -98,6 +92,8 @@ alias myip='curl ipecho.net/plain; echo'
 # sublime aliases
 alias subn='subl -n'
 alias subb='subl -b'
+
+alias py=python3
 
 # because apparently i need a spotify CLI
 alias spot='spotify'
@@ -125,12 +121,14 @@ alias pip='noglob pip'
 alias pip3='noglob pip3'
 
 # git aliases
+alias gl='git pull --rebase'
 alias gcm='git checkout mainline'
 alias gcs='git checkout schnicke'
 alias git-commit-amend='git commit --amend --no-edit'
 alias glogs='git log --oneline --decorate --graph -n 10'
 alias glgpm='git log --stat -p --max-count=6'
-alias gdh='git diff HEAD~1 HEAD'
+alias gdh='git diff HEAD~1 HEAD -- . ":(exclude)package-lock.json"'
+alias gdhf='git diff --name-only HEAD~1 HEAD'
 alias gpp='git pull && git push'
 alias gdba='echo "lol dont use this"'
 
@@ -141,12 +139,13 @@ alias zshrc='$EDITOR ~/.zshrc'
 alias source_zsrhc='source ~/.zshrc'
 alias h='history'
 
-# Copypasta aliases lol
+# copypasta aliases lol
 alias bucks="cat ~/Documents/pasta/buckeye.txt"
 alias 🙅="cat ~/Documents/pasta/nah_we.txt"
 alias 🤷‍♀️="echo '¯\_(ツ)_/¯'"
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias extra_thicc="echo '乇乂ㄒ尺卂 ㄒ卄丨匚匚'"
 
-# Load private zsh aliases
+# load private zsh aliases
 . ~/.zshpriv
-
+eval "$(rbenv init -)"
